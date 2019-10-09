@@ -1,20 +1,20 @@
 {% set name = "holoplot" %}
-{% set version = "0.0.4" %}
-{% set sha256 = "2b32b78bea003085413634cb83a8c2a5f48fe41a338056b5b15f5673798c1be4" %}
+{% set version = "0.1.0" %}
+{% set sha256 = "8f5cc1f1bc058c38ae8bcadace7b09cb1acb581599e9db87c21c3a2e92281d48" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.zip
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
   noarch: python
   number: 0
   entry_points:
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   host:
